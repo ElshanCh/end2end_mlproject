@@ -1,0 +1,20 @@
+End to End ML Project
+Set up Project With GitHub
+1. Data Ingestion
+2. Data Transformation
+3. Model Trainer 
+4. Model Evaluation
+5. Model Deployment
+
+CI/CD Pipelines - GitHub Actions
+Deployment - AWS
+
+Tutorial 1:
+1- Set up the github {Repository}
+	a)new environment
+	  ~~ conda create -p venv python==3.8 -y ~~
+	b)setup.py
+	c)requirements.txt
+2- Src folder and build a package
+   Setup and Requirements.txt 
+	"setup.py": is used to build an application as a Package(library)
