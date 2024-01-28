@@ -1,15 +1,17 @@
+-------------------------------------------------
 End to End ML Project
-Set up Project With GitHub
-1. Data Ingestion
-2. Data Transformation
-3. Model Trainer 
-4. Model Evaluation
-5. Model Deployment
+-------------------------------------------------
 
-CI/CD Pipelines - GitHub Actions
-Deployment - AWS
+1. Set up Project With GitHub
+2. Data Ingestion
+3. Data Transformation
+4. Model Trainer 
+5. Model Evaluation
+6. Model Deployment
+7. CI/CD Pipelines - GitHub Actions
+8. Deployment - AWS
 
-Tutorial 1:
+Tutorial 1: End To End ML Project With Deployment-Github And Code
 1- Set up the github {Repository}
 	a)new environment
 	  ~~ conda create -p venv python==3.8 -y ~~
