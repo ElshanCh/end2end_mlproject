@@ -236,8 +236,57 @@ This organization improves code structure and prepares your project for distribu
     `train_pipeline.py`,
     `predict_pipeline.py`
 
-## 4. Create 3 more Files inside the `src` Folder
+## 4. Create `logger.py` File inside the `src` Folder and compile it.
 1. Create `logger.py` File inside the `src` Folder.
-2. Create `exception.py` File inside the `src` Folder.
-3. Create `utils.py` File inside the `src` Folder. This file will contain any functionalities written in a common way which will be used in entire application (will be used in components).
+
+2. Compiling the `logger.py` File:
+``` python
+import logging
+import os
+from datetime import datetime
+
+LOG_FILE=f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
+logs_path=os.path.join(os.getcwd(),"logs",LOG_FILE)
+os.makedirs(logs_path,exist_ok=True)
+
+LOG_FILE_PATH=os.path.join(logs_path,LOG_FILE)
+
+logging.basicConfig(
+    filename=LOG_FILE_PATH,
+    format="[ %(asctime)s ] %(lineno)d %(name)s - %(levelname)s - %(message)s",
+    level=logging.INFO,
+
+)
+``` 
+
+## 5. Create `exception.py` File inside the `src` Folder and compile it.
+1. Create `exception.py` File inside the `src` Folder. (follow the provided link to get mo info about the [Built-in Exceptions](https://docs.python.org/3/library/exceptions.html) in Python)
+
+2. Compiling the `exception.py` File:
+``` python
+import sys
+
+def error_message_detail(error,error_detail:sys):
+    # exc_tb will return all info like on which file, line number the exception has occured
+    _,_,exc_tb = error_detail.exc_info()
+    file_name = exc_tb.tb_frame.f_code.co_filename
+    error_message = "Error occured in python script name [{0}] line number [{1}] error message [{2}]".format(
+        file_name, exc_tb.tb_lineno, str(error)
+    )
+    
+    return error_message
+
+
+class CustomException(Exception):
+    def __init__(self, error_message,error_detail:sys):
+        super.__init__(error_message)
+        self.error_message = error_message_detail(error_message,error_detail=error_detail)
+
+    def __str__(self):
+        return self.error_message
+``` 
+3. This exception handling can be reused everywhere and it will be common
+
+## 6. Create `utils.py` File inside the `src` Folder and compile it.
+1. Create `utils.py` File inside the `src` Folder. This file will contain any functionalities written in a common way which will be used in entire application (will be used in components).
 
