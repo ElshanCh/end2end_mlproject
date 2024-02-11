@@ -18,14 +18,16 @@
 7. CI/CD Pipelines - GitHub Actions
 8. Deployment - AWS
 
-# Tutorial 1: Github And Code
+<br><br>
 
-## 1. Environment Creation
+# <span style="color:blue"> Tutorial 1: Github And Code </span>
+
+### 1. Environment Creation
 
 1. Create a new environment:
 
     ```bash
-    conda create -p venv python==3.8 -y
+    conda create -p venv python==<version> -y
     ```
 
 2. Activate the new environment:
@@ -213,7 +215,9 @@ pip install -r requirements.txt
 
 This organization improves code structure and prepares your project for distribution or deployment. Adjust the package name, version, and dependencies in `setup.py` according to your project's specifications.
 
-# Tutorial 2: Project Structure, Logging And Exception Handling
+<br><br>
+
+# <span style="color:blue"> Tutorial 2: Project Structure, Logging And Exception Handling </span>
 
 ## 1. Create `components` Folder inside the `src` Folder
 
@@ -288,5 +292,38 @@ class CustomException(Exception):
 ## 6. Create `utils.py` File inside the `src` Folder and compile it.
 1. Create `utils.py` File inside the `src` Folder. This file will contain any functionalities written in a common way which will be used in entire application (will be used in components).
 
+<br><br>
 
-# Tutorial 3: Project Problem Statement,EDA And Model Training
+# <span style="color:blue"> Tutorial 3: Project Problem Statement,EDA And Model Training </span>
+
+Find the material of this tutorial in the `notebook` folder:
+- `1.EDA STUDENT PERFORMANCE.ipynb`
+- `2.MODEL TRAINING.ipynb` 
+
+<br><br>
+
+# <span style="color:blue"> Tutorial 4: Data Ingestion Implementation Line By Line </span>
+
+`data_ingestion.py`
+---
+- The following class will help us to save data into a specific location, in this case into the `artifacts` folder.
+
+```python
+@dataclass
+class DataIngestionConfig:
+    train_data_path: str=os.path.join('artifacts',"train.csv")
+    test_data_path: str=os.path.join('artifacts',"test.csv")
+    raw_data_path: str=os.path.join('artifacts',"data.csv")
+```
+
+- In Python, the `@dataclass` decorator is used to automatically generate special methods such as `__init__()`, `__repr__()`, `__eq__()`, and others, based on class variables defined within the class. It's particularly useful for creating classes that primarily store data, such as configuration settings, without needing to manually implement these methods.
+
+- Please notice that in this notebook we use `logging` and `CustomException` libraries that we've created in the `src` folder
+```python
+logging.info("Entered the data ingestion method or component")
+```
+
+```python
+except Exception as e:
+    raise CustomException(e,sys)
+```
