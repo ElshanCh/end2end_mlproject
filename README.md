@@ -213,8 +213,6 @@ pip install -r requirements.txt
 
 This organization improves code structure and prepares your project for distribution or deployment. Adjust the package name, version, and dependencies in `setup.py` according to your project's specifications.
 
-##
-##
 # Tutorial 2: Project Structure, Logging And Exception Handling
 
 ## 1. Create `components` Folder inside the `src` Folder
@@ -290,3 +288,5 @@ class CustomException(Exception):
 ## 6. Create `utils.py` File inside the `src` Folder and compile it.
 1. Create `utils.py` File inside the `src` Folder. This file will contain any functionalities written in a common way which will be used in entire application (will be used in components).
 
+
+# Tutorial 3: Project Problem Statement,EDA And Model Training
