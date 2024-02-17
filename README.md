@@ -327,3 +327,40 @@ logging.info("Entered the data ingestion method or component")
 except Exception as e:
     raise CustomException(e,sys)
 ```
+
+<br><br>
+
+# <span style="color:blue"> Tutorial 5: Data Transformation Implementation Using Pipelines </span>
+
+`data_transformation.py`
+---
+
+**Impute** in the context of data analysis or statistics refers to filling in missing values in a dataset.
+
+- We need `num_pipeline` to fill the missing values with "median" value in the numerical features (Imputing) and for Standard Scaling the numerical values. 
+- <span style="background-color:green">For filling it's used "median" value because from our EDA we understood that there are outliers in numerical features.</span>
+```python
+num_pipeline= Pipeline(
+    steps=[
+    ("imputer",SimpleImputer(strategy="median")),
+    ("scaler",StandardScaler())
+    ]
+)
+```
+- `cat_pipeline` for categorical features:
+```python
+cat_pipeline=Pipeline(
+    steps=[
+    ("imputer",SimpleImputer(strategy="most_frequent")),
+    ("one_hot_encoder",OneHotEncoder()),
+    ("scaler",StandardScaler(with_mean=False))
+    ]
+)
+```
+
+<br><br>
+
+# <span style="color:blue"> Tutorial 5: Model Training And Model Evaluating Component </span>
+
+`model_training.py`
+---
