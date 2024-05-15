@@ -127,6 +127,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+/envconda_end2end_mlproject
 
 # Spyder project settings
 .spyderproject

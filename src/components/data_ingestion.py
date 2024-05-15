@@ -14,12 +14,17 @@ from src.components.model_trainer import ModelTrainerConfig
 from src.components.model_trainer import ModelTrainer
 
 
+# The @dataclass decorator is used to create a class that will be used to store 
+# configuration parameters for the data ingestion component. It automatically 
+# generates special methods such as __init__, __repr__, and __eq__, thus saving 
+# us from writing boilerplate code. It also automatically creates class variables 
+# and properties for the fields. 
 @dataclass
 class DataIngestionConfig:
     train_data_path: str=os.path.join('artifacts',"train.csv")
     test_data_path: str=os.path.join('artifacts',"test.csv")
     raw_data_path: str=os.path.join('artifacts',"data.csv")
-
+    
 class DataIngestion:
     def __init__(self):
         self.ingestion_config=DataIngestionConfig()
@@ -41,7 +46,7 @@ class DataIngestion:
 
             test_set.to_csv(self.ingestion_config.test_data_path,index=False,header=True)
 
-            logging.info("Inmgestion of the data is completed")
+            logging.info("Ingestion of the data is completed")
 
             return(
                 self.ingestion_config.train_data_path,
@@ -55,10 +60,10 @@ if __name__=="__main__":
     obj=DataIngestion()
     train_data,test_data=obj.initiate_data_ingestion()
 
-    data_transformation=DataTransformation()
-    train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
+    # data_transformation=DataTransformation()
+    # train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
 
-    modeltrainer=ModelTrainer()
-    print(modeltrainer.initiate_model_trainer(train_arr,test_arr))
+    # modeltrainer=ModelTrainer()
+    # print(modeltrainer.initiate_model_trainer(train_arr,test_arr))
 
 
